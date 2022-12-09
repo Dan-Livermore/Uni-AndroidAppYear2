@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/employeebutton"
+        android:id="@+id/adminbutton"
         android:layout_width="330dp"
         android:layout_height="84dp"
         android:layout_marginTop="33dp"
-        android:backgroundTint="#3F51B5"
+        android:backgroundTint="#FF5722"
         android:fontFamily="@font/source_sans_pro_bold"
-        android:text="EMPLOYEE LOG IN"
-        android:textColor="#FFFFFF"
+        android:text="ADMIN LOG IN"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -22,12 +22,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/AdminLogInTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="159dp"
+        android:id="@+id/PageTitle"
+        android:layout_width="392dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="161dp"
         android:fontFamily="@font/source_sans_pro_bold"
-        android:text="ADMIN\nLOG IN"
+        android:text="EMPLOYEE LOG IN"
+        android:textAllCaps="true"
         android:textColor="#000000"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,6 +59,7 @@
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/EmailTextbox"
         android:layout_width="210dp"
@@ -84,19 +86,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <CheckBox
+        android:id="@+id/RememberMe"
+        android:layout_width="165dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="474dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:text="Remember Me"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/LogInButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="549dp"
-        android:backgroundTint="#FF5722"
+        android:background="#3F51B5"
+        android:backgroundTint="#3F51B5"
         android:fontFamily="@font/source_sans_pro_bold"
         android:text="LOG IN"
         android:textSize="48sp"
-        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="PostcodeData" type="id">PostcodeData</item>
+    <item name="DiscardButton" type="id">DiscardButton</item>
+    <item name="SaveButton" type="id">SaveButton</item>
+    <item name="NotificationSettingsButton" type="id">NotificationSettingsButton</item>
+</resources>
