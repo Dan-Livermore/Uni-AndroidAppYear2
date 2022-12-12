@@ -15,9 +15,9 @@ public class EmployeeNotifications extends AppCompatActivity {
         setContentView(R.layout.activity_employee_notifications);
 
         //create buttons
-        ImageButton navlogout = findViewById(R.id.NavLogOutButton2);
-        ImageButton navholiday = findViewById(R.id.NavHolidayButton2);
-        ImageButton navaccount = findViewById(R.id.NavAccountButton2);
+        ImageButton navlogout = findViewById(R.id.NavLogOutButton5);
+        ImageButton navholiday = findViewById(R.id.NavHolidayButton5);
+        ImageButton navaccount = findViewById(R.id.NavAccountButton5);
         Button savebutton = findViewById(R.id.SaveNotify);
 
         //log out button switches activity

@@ -227,7 +227,7 @@
         android:backgroundTint="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_person"
+        app:srcCompat="@drawable/ic_baseline_account"
         android:contentDescription="@string/todo" />
 
     <ImageButton
@@ -239,7 +239,7 @@
         android:backgroundTint="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_calendar_today"
+        app:srcCompat="@drawable/ic_baseline_holiday_emp"
         android:contentDescription="TODO"
         tools:ignore="ContentDescription" />
 

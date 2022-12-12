@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
         android:fontFamily="@font/source_sans_pro_bold"
-        android:text="Employee Details"
+        android:text="Account Details"
         android:textColor="#000000"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -176,7 +176,7 @@
         android:id="@+id/TitleEditData"
         android:layout_width="177dp"
         android:layout_height="57dp"
-        android:layout_marginTop="532dp"
+        android:layout_marginTop="500dp"
         android:backgroundTint="#F44336"
         android:fontFamily="@font/source_sans_pro_bold"
         android:text="edit data"
@@ -197,7 +197,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/NavbarBase"
+        android:id="@+id/NavbarBase7"
         android:layout_width="413dp"
         android:layout_height="92dp"
         android:background="#F44336"
@@ -206,7 +206,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/NavAccountButton"
+        android:id="@+id/NavAccountButton7"
         android:layout_width="86dp"
         android:layout_height="79dp"
         android:layout_marginEnd="14dp"
@@ -215,23 +215,38 @@
         android:contentDescription="todo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_person" />
+        app:srcCompat="@drawable/ic_baseline_account" />
 
     <ImageButton
-        android:id="@+id/NavHolidayButton"
+        android:id="@+id/NavHolidayButton7"
         android:layout_width="86dp"
         android:layout_height="79dp"
-        android:layout_marginStart="165dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginStart="213dp"
+        android:layout_marginTop="653dp"
+        android:layout_marginEnd="112dp"
         android:backgroundTint="#F44336"
-        android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_calendar_today"
-        tools:ignore="ContentDescription" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_holiday_adm" />
 
     <ImageButton
-        android:id="@+id/NavLogOutButton"
+        android:id="@+id/NavEmployeeButton7"
+        android:layout_width="86dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="653dp"
+        android:layout_marginEnd="211dp"
+        android:backgroundTint="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_people_employees" />
+
+    <ImageButton
+        android:id="@+id/NavLogOutButton7"
         android:layout_width="86dp"
         android:layout_height="79dp"
         android:layout_marginStart="20dp"

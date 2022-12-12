@@ -24,7 +24,7 @@
         android:backgroundTint="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_person" />
+        app:srcCompat="@drawable/ic_baseline_account" />
 
     <ImageButton
         android:id="@+id/NavHolidayButton3"
@@ -35,7 +35,7 @@
         android:backgroundTint="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_calendar_today" />
+        app:srcCompat="@drawable/ic_baseline_holiday_emp" />
 
     <ImageButton
         android:id="@+id/NavLogOutButton3"
