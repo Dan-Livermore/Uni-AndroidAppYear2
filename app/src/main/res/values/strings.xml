@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">High Fidelity Prototype</string>
+    <string name="start_date">Start Date:</string>
+    <string name="position">Position:</string>
+    <string name="address">Address:</string>
+    <string name="employee_details">Employee Details</string>
+    <string name="name">Name:</string>
+    <string name="dob">DOB:</string>
+    <string name="email">Email:</string>
+    <string name="simon_lane">Simon Lane</string>
+    <string name="_14_03_1978">14/03/1978</string>
+    <string name="slane37_hotmail_com">slane37@hotmail.com</string>
+    <string name="_62_west_wallaby_street">62 West Wallaby Street</string>
+    <string name="wigan_wn1_1at">Wigan, WN1 1AT</string>
+    <string name="producer">Producer</string>
+    <string name="_20_03_2011">20/03/2011</string>
+    <string name="notification_settings">NOTIFICATION SETTINGS</string>
+    <string name="edit_data">EDIT DATA</string>
+    <string name="last_updated_30_10_22">Last Updated: 30/10/22</string>
+    <string name="todo">TODO</string>
+</resources>
