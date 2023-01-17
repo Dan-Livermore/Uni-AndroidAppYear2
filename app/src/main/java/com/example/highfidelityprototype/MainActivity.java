@@ -22,32 +22,32 @@ public class MainActivity extends AppCompatActivity {
         Button adminlogin = findViewById(R.id.adminbutton);
 
 
-            mainlogin.setOnClickListener(view -> {
-                // no validation on inputs
-                EditText username = (EditText) findViewById(R.id.EmailTextbox);
-                String user = username.getText().toString();
-                EditText password = (EditText) findViewById(R.id.PasswordTextbox);
-                String passw = password.getText().toString();
-                if (user.equals("") && passw.equals("")) {
-                    Toast.makeText(MainActivity.this, "Enter email and password",
-                            Toast.LENGTH_SHORT).show();
-                } else if (user.equals("")) {
-                    Toast.makeText(MainActivity.this, "Enter valid email",
-                            Toast.LENGTH_SHORT).show();
-                } else if (passw.equals("")) {
-                    Toast.makeText(MainActivity.this, "Enter password",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent intent = new Intent(MainActivity.this, EmployeeAccount.class);
-                    startActivity(intent);
-                }
-            });
-
-            //Pop up notifications if trying to access admin log in
-            adminlogin.setOnClickListener(view -> {
-                Toast.makeText(MainActivity.this, "Outside of scope of exercises",
+        mainlogin.setOnClickListener(view -> {
+            // no validation on inputs
+            EditText username = (EditText) findViewById(R.id.EmailTextbox);
+            String user = username.getText().toString();
+            EditText password = (EditText) findViewById(R.id.PasswordTextbox);
+            String passw = password.getText().toString();
+            if (user.equals("") && passw.equals("")) {
+                Toast.makeText(MainActivity.this, "Enter email and password",
                         Toast.LENGTH_SHORT).show();
-            });
+            } else if (user.equals("")) {
+                Toast.makeText(MainActivity.this, "Enter valid email",
+                        Toast.LENGTH_SHORT).show();
+            } else if (passw.equals("")) {
+                Toast.makeText(MainActivity.this, "Enter password",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Intent intent = new Intent(MainActivity.this, EmployeeAccount.class);
+                startActivity(intent);
+            }
+        });
+
+        //swaps to employee log in
+        adminlogin.setOnClickListener(view ->{
+            Intent intent = new Intent(MainActivity.this, AdminLogin.class);
+            startActivity(intent);
+        });
 
     }
 }
