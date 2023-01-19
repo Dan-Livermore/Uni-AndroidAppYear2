@@ -7,7 +7,7 @@
     tools:context=".AdminEmployeeAccount">
 
     <TextView
-        android:id="@+id/NavbarBase"
+        android:id="@+id/NavbarBase6"
         android:layout_width="413dp"
         android:layout_height="92dp"
         android:background="#F44336"
@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/NavLogOutButton"
+        android:id="@+id/NavLogOutButton6"
         android:layout_width="86dp"
         android:layout_height="79dp"
         android:layout_marginStart="12dp"
@@ -31,7 +31,7 @@
         tools:ignore="ContentDescription" />
 
     <ImageButton
-        android:id="@+id/NavEmployeeButton"
+        android:id="@+id/NavEmployeeButton6"
         android:layout_width="86dp"
         android:layout_height="79dp"
         android:layout_marginStart="111dp"
@@ -43,7 +43,7 @@
         app:srcCompat="@drawable/ic_baseline_people_24" />
 
     <ImageButton
-        android:id="@+id/NavHolidayButton2"
+        android:id="@+id/NavHolidayButton6"
         android:layout_width="86dp"
         android:layout_height="79dp"
         android:layout_marginStart="212dp"
@@ -55,7 +55,7 @@
         app:srcCompat="@drawable/ic_baseline_airplanemode_active_24" />
 
     <ImageButton
-        android:id="@+id/NavAccountButton"
+        android:id="@+id/NavAccountButton6"
         android:layout_width="86dp"
         android:layout_height="79dp"
         android:layout_marginStart="309dp"

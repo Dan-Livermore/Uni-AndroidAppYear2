@@ -15,10 +15,10 @@ public class AdminEmployeeAccount extends AppCompatActivity {
         setContentView(R.layout.activity_admin_employee_account);
 
         //create buttons
-        ImageButton navlogout = findViewById(R.id.NavLogOutButton);
-        ImageButton navemployee = findViewById(R.id.NavEmployeeButton);
-        ImageButton navholiday = findViewById(R.id.NavHolidayButton2);
-        ImageButton navaccount = findViewById(R.id.NavAccountButton);
+        ImageButton navlogout = findViewById(R.id.NavLogOutButton6);
+        ImageButton navemployee = findViewById(R.id.NavEmployeeButton6);
+        ImageButton navholiday = findViewById(R.id.NavHolidayButton6);
+        ImageButton navaccount = findViewById(R.id.NavAccountButton6);
         Button editdata = findViewById(R.id.TitleEditData);
 
         //log out button switches activity
