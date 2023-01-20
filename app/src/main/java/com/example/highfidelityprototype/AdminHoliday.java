@@ -4,15 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
-import com.android.volley.Request.Method;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -22,7 +18,6 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 
 
 public class AdminHoliday extends AppCompatActivity {
@@ -62,12 +57,12 @@ public class AdminHoliday extends AppCompatActivity {
             startActivity(intent);
         });
 
-        Button IDbutton = findViewById(R.id.buttongetid);
+        Button getbutton = findViewById(R.id.buttongetbyname);
         TextView textV = findViewById(R.id.textView1);
 
-        IDbutton.setOnClickListener(view -> {
+        getbutton.setOnClickListener(view -> {
             RequestQueue queue = Volley.newRequestQueue(AdminHoliday.this);
-            String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees";
+            String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees/1";
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                     (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
