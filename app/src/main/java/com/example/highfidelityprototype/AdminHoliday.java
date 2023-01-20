@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -160,28 +161,30 @@ public class AdminHoliday extends AppCompatActivity {
             RequestQueue queue = Volley.newRequestQueue(AdminHoliday.this);
             String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees";
 
-            JSONObject object = new JSONObject();
+            int newID = 10716150;
+            String newFName = "Name1Update";
+            String newLName = "Name2Update";
+            JSONObject object2 = new JSONObject();
             try{
-                object.put("id", 10716150);
-                object.put("forename", "Name1Update");
-                object.put("surname", "Name2Update");
+                object2.put("id", newID);
+                object2.put("forename", newFName);
+                object2.put("surname", newLName);
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
-
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                    (Request.Method.POST, url, object, new Response.Listener<JSONObject>() {
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, object2,
+                    new Response.Listener<JSONObject>() {
 
                         @Override
                         public void onResponse(JSONObject response) {
-                            textV.setText("Response: " + response.toString());
+                            Toast.makeText(AdminHoliday.this, "Updated", Toast.LENGTH_SHORT).show();
                         }
                     }, new Response.ErrorListener() {
 
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             // TODO: Handle error
-
+                            Toast.makeText(AdminHoliday.this, "ID invalid", Toast.LENGTH_SHORT).show();
                         }
                     });
             queue.add(jsonObjectRequest);
