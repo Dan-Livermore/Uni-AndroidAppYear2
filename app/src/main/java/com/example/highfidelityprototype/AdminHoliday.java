@@ -57,10 +57,11 @@ public class AdminHoliday extends AppCompatActivity {
             startActivity(intent);
         });
 
-        Button getbutton = findViewById(R.id.buttongetbyname);
+        Button getbtn = findViewById(R.id.buttongetbyname);
+        Button deletebtn = findViewById(R.id.deletebutton);
         TextView textV = findViewById(R.id.textView1);
 
-        getbutton.setOnClickListener(view -> {
+        getbtn.setOnClickListener(view -> {
             RequestQueue queue = Volley.newRequestQueue(AdminHoliday.this);
             String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees/1";
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -80,5 +81,46 @@ public class AdminHoliday extends AppCompatActivity {
                     });
             queue.add(jsonObjectRequest);
         });
+
+
+        deletebtn.setOnClickListener(view -> {
+
+
+
+            ///ask for input
+
+
+
+            RequestQueue queue = Volley.newRequestQueue(AdminHoliday.this);
+            String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees/1";
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                    (Request.Method.DELETE, url, null, new Response.Listener<JSONObject>() {
+
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            textV.setText("Response: " + response.toString());
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // TODO: Handle error
+
+
+
+
+                            //404 doesnt exist
+
+
+
+
+
+                        }
+                    });
+            queue.add(jsonObjectRequest);
+        });
+
+
+
     }
 }
