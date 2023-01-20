@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminHoliday">
+
+
+
+    <TextView
+        android:id="@+id/NavbarBase11"
+        android:layout_width="413dp"
+        android:layout_height="92dp"
+        android:background="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/NavEmployeeButton11"
+        android:layout_width="86dp"
+        android:layout_height="79dp"
+        android:layout_marginEnd="208dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_people_24" />
+
+    <ImageButton
+        android:id="@+id/NavAccountButton11"
+        android:layout_width="86dp"
+        android:layout_height="79dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_person_24" />
+
+    <ImageButton
+        android:id="@+id/NavHolidayButton11"
+        android:layout_width="86dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_airplanemode_active_24" />
+
+    <ImageButton
+        android:id="@+id/NavLogOutButton11"
+        android:layout_width="86dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="313dp"
+        android:backgroundTint="#F44336"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_exit_to_app_24"
+        tools:ignore="ContentDescription" />
+
+    <Button
+        android:id="@+id/buttongetid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get ID"
+        app:layout_constraintEnd_toStartOf="@+id/buttongetbyname"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttongetbyname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get by name"
+        app:layout_constraintEnd_toStartOf="@+id/buttongetbyid"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttongetid"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttongetbyid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get by ID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttongetbyname"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/datainput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="employee data"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttongetid" />
+
+    <ListView
+        android:id="@+id/listview1"
+        android:layout_width="382dp"
+        android:layout_height="603dp"
+        android:layout_marginTop="38dp"
+        app:layout_constraintBottom_toTopOf="@+id/NavHolidayButton11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datainput"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

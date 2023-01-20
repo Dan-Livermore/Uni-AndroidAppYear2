@@ -27,9 +27,15 @@ public class AdminEmployeeAccount extends AppCompatActivity {
             startActivity(intent);
         });
 
+        //employee button switches activity
+        navemployee.setOnClickListener(view ->{
+            Intent intent = new Intent(AdminEmployeeAccount.this, AdminHoliday.class);
+            startActivity(intent);
+        });
+
         //holiday button switches activity
         navholiday.setOnClickListener(view ->{
-            Intent intent = new Intent(AdminEmployeeAccount.this, EmployeeHoliday.class);
+            Intent intent = new Intent(AdminEmployeeAccount.this, AdminHoliday.class);
             startActivity(intent);
         });
 

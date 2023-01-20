@@ -29,19 +29,19 @@ public class AdminAccount extends AppCompatActivity {
 
         //employee button switches activity
         navemployee.setOnClickListener(view ->{
-            Intent intent = new Intent(AdminAccount.this, MainActivity.class);
+            Intent intent = new Intent(AdminAccount.this, AdminHoliday.class);
             startActivity(intent);
         });
 
         //holiday button switches activity
         navholiday.setOnClickListener(view ->{
-            Intent intent = new Intent(AdminAccount.this, EmployeeHoliday.class);
+            Intent intent = new Intent(AdminAccount.this, AdminHoliday.class);
             startActivity(intent);
         });
 
         //account button switches activity
         navaccount.setOnClickListener(view ->{
-            Intent intent = new Intent(AdminAccount.this, EmployeeAccount.class);
+            Intent intent = new Intent(AdminAccount.this, AdminAccount.class);
             startActivity(intent);
         });
     }
