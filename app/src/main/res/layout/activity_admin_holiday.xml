@@ -7,7 +7,6 @@
     tools:context=".AdminHoliday">
 
 
-
     <TextView
         android:id="@+id/NavbarBase11"
         android:layout_width="413dp"
@@ -65,56 +64,26 @@
         tools:ignore="ContentDescription" />
 
     <Button
-        android:id="@+id/buttongetid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Get ID"
-        app:layout_constraintEnd_toStartOf="@+id/buttongetbyname"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/buttongetbyname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Get by name"
-        app:layout_constraintEnd_toStartOf="@+id/buttongetbyid"
+        app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttongetid"
+        app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttongetbyid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Get by ID"
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="344dp"
+        android:layout_height="566dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/NavbarBase11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttongetbyname"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/datainput"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="employee data"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttongetid" />
-
-    <ListView
-        android:id="@+id/listview1"
-        android:layout_width="382dp"
-        android:layout_height="603dp"
-        android:layout_marginTop="38dp"
-        app:layout_constraintBottom_toTopOf="@+id/NavHolidayButton11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/datainput"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

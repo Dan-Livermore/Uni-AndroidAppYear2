@@ -4,8 +4,26 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.Request.Method;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 
 public class AdminHoliday extends AppCompatActivity {
 
@@ -21,44 +39,51 @@ public class AdminHoliday extends AppCompatActivity {
         ImageButton navaccount = findViewById(R.id.NavAccountButton11);
 
         //log out button switches activity
-        navlogout.setOnClickListener(view ->{
+        navlogout.setOnClickListener(view -> {
             Intent intent = new Intent(AdminHoliday.this, AdminLogin.class);
             startActivity(intent);
         });
 
         //employee button switches activity
-        navemployee.setOnClickListener(view ->{
+        navemployee.setOnClickListener(view -> {
             Intent intent = new Intent(AdminHoliday.this, AdminHoliday.class);
             startActivity(intent);
         });
 
         //holiday button switches activity
-        navholiday.setOnClickListener(view ->{
+        navholiday.setOnClickListener(view -> {
             Intent intent = new Intent(AdminHoliday.this, AdminHoliday.class);
             startActivity(intent);
         });
 
         //account button switches activity
-        navaccount.setOnClickListener(view ->{
+        navaccount.setOnClickListener(view -> {
             Intent intent = new Intent(AdminHoliday.this, AdminAccount.class);
             startActivity(intent);
         });
 
         Button IDbutton = findViewById(R.id.buttongetid);
-        Button GetByID = findViewById(R.id.buttongetbyid);
-        Button GetByName = findViewById(R.id.buttongetbyname);
+        TextView textV = findViewById(R.id.textView1);
 
-        IDbutton.setOnClickListener(view ->{
+        IDbutton.setOnClickListener(view -> {
+            RequestQueue queue = Volley.newRequestQueue(AdminHoliday.this);
+            String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees";
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                    (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            textV.setText("Response: " + response.toString());
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // TODO: Handle error
+
+                        }
+                    });
+            queue.add(jsonObjectRequest);
         });
-
-        GetByID.setOnClickListener(view ->{
-
-        });
-
-        GetByName.setOnClickListener(view ->{
-
-        });
-
     }
 }
