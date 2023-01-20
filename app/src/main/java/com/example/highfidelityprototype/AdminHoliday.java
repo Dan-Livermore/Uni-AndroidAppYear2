@@ -60,6 +60,8 @@ public class AdminHoliday extends AppCompatActivity {
         Button getbtn = findViewById(R.id.buttongetbyname);
         Button deletebtn = findViewById(R.id.deletebutton);
         Button putbtn = findViewById(R.id.putbutton);
+        Button postbtn = findViewById(R.id.updatebutton);
+
         TextView textV = findViewById(R.id.textView1);
 
         getbtn.setOnClickListener(view -> {
@@ -152,5 +154,40 @@ public class AdminHoliday extends AppCompatActivity {
                     });
             queue.add(jsonObjectRequest);
         });
+
+
+        postbtn.setOnClickListener(view -> {
+            RequestQueue queue = Volley.newRequestQueue(AdminHoliday.this);
+            String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees";
+
+            JSONObject object = new JSONObject();
+            try{
+                object.put("id", 10716150);
+                object.put("forename", "Name1Update");
+                object.put("surname", "Name2Update");
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
+
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                    (Request.Method.POST, url, object, new Response.Listener<JSONObject>() {
+
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            textV.setText("Response: " + response.toString());
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // TODO: Handle error
+
+                        }
+                    });
+            queue.add(jsonObjectRequest);
+        });
+
+
+
     }
 }
