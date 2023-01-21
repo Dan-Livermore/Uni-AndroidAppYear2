@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -59,6 +60,9 @@ public class AdminHoliday extends AppCompatActivity {
 
         Button getbtn = findViewById(R.id.buttongetbyname);
         Button deletebtn = findViewById(R.id.deletebutton);
+        Button putbtn = findViewById(R.id.putbutton);
+        Button updatebtn = findViewById(R.id.updatebutton);
+
         TextView textV = findViewById(R.id.textView1);
 
         getbtn.setOnClickListener(view -> {
@@ -92,7 +96,7 @@ public class AdminHoliday extends AppCompatActivity {
 
 
             RequestQueue queue = Volley.newRequestQueue(AdminHoliday.this);
-            String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees/1";
+            String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees/10716150";
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                     (Request.Method.DELETE, url, null, new Response.Listener<JSONObject>() {
 
@@ -119,6 +123,75 @@ public class AdminHoliday extends AppCompatActivity {
                     });
             queue.add(jsonObjectRequest);
         });
+
+
+        putbtn.setOnClickListener(view -> {
+            RequestQueue queue = Volley.newRequestQueue(AdminHoliday.this);
+            String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees";
+
+            JSONObject object = new JSONObject();
+            try{
+                object.put("id", 10716150);
+                object.put("forename", "Name1");
+                object.put("surname", "Name2");
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
+
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                    (Request.Method.POST, url, object, new Response.Listener<JSONObject>() {
+
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            textV.setText("Response: " + response.toString());
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // TODO: Handle error
+
+                        }
+                    });
+            queue.add(jsonObjectRequest);
+        });
+
+
+        updatebtn.setOnClickListener(view -> {
+            RequestQueue queue = Volley.newRequestQueue(AdminHoliday.this);
+
+            int newID = 10716150;
+            String newFName = "Name1Update";
+            String newLName = "Name2Update";
+            JSONObject object2 = new JSONObject();
+            try{
+                object2.put("id", newID);
+                object2.put("forename", newFName);
+                object2.put("surname", newLName);
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
+
+            String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees/"+newID;
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, url, object2,
+
+                    new Response.Listener<JSONObject>() {
+
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Toast.makeText(AdminHoliday.this, "Updated", Toast.LENGTH_SHORT).show();
+                        }
+                    }, new Response.ErrorListener() {
+
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    // TODO: Handle error
+                    Toast.makeText(AdminHoliday.this, "ID invalid", Toast.LENGTH_SHORT).show();
+                }
+            });
+            queue.add(jsonObjectRequest);
+        });
+
 
 
 
