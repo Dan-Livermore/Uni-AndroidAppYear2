@@ -27,13 +27,13 @@ public class AdminNotifications extends AppCompatActivity {
 
         //employee button switches activity
         navemployee.setOnClickListener(view ->{
-            Intent intent = new Intent(AdminNotifications.this, AdminHoliday.class);
+            Intent intent = new Intent(AdminNotifications.this, AdminEmployeeList.class);
             startActivity(intent);
         });
 
         //holiday button switches activity
         navholiday.setOnClickListener(view ->{
-            Intent intent = new Intent(AdminNotifications.this, AdminHoliday.class);
+            Intent intent = new Intent(AdminNotifications.this, AdminEmployeeList.class);
             startActivity(intent);
         });
 

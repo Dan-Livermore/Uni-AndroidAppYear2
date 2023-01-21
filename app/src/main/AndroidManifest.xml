@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -13,9 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HighFidelityPrototype"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        android:usesCleartextTraffic="true">
+
         <activity
-            android:name=".AdminHoliday"
+            android:name=".AdminEmployeeList"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -23,13 +24,6 @@
         </activity>
         <activity
             android:name=".AdminNotifications"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".AdminEmployeeAccount"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminHoliday">
+    tools:context=".AdminEmployeeList">
 
 
     <TextView
@@ -76,12 +76,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="336dp"
-        android:layout_height="535dp"
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="408dp"
+        android:layout_height="483dp"
         android:layout_marginTop="144dp"
-        android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.28"
         app:layout_constraintStart_toStartOf="parent"
