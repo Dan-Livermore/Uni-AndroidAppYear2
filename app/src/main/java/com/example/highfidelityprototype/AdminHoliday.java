@@ -61,13 +61,13 @@ public class AdminHoliday extends AppCompatActivity {
         Button getbtn = findViewById(R.id.buttongetbyname);
         Button deletebtn = findViewById(R.id.deletebutton);
         Button putbtn = findViewById(R.id.putbutton);
-        Button postbtn = findViewById(R.id.updatebutton);
+        Button updatebtn = findViewById(R.id.updatebutton);
 
         TextView textV = findViewById(R.id.textView1);
 
         getbtn.setOnClickListener(view -> {
             RequestQueue queue = Volley.newRequestQueue(AdminHoliday.this);
-            String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees/10716150";
+            String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees/1";
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                     (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
@@ -157,9 +157,8 @@ public class AdminHoliday extends AppCompatActivity {
         });
 
 
-        postbtn.setOnClickListener(view -> {
+        updatebtn.setOnClickListener(view -> {
             RequestQueue queue = Volley.newRequestQueue(AdminHoliday.this);
-            String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees";
 
             int newID = 10716150;
             String newFName = "Name1Update";
@@ -172,7 +171,10 @@ public class AdminHoliday extends AppCompatActivity {
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, object2,
+
+            String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees/"+newID;
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, url, object2,
+
                     new Response.Listener<JSONObject>() {
 
                         @Override
@@ -181,14 +183,15 @@ public class AdminHoliday extends AppCompatActivity {
                         }
                     }, new Response.ErrorListener() {
 
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            // TODO: Handle error
-                            Toast.makeText(AdminHoliday.this, "ID invalid", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    // TODO: Handle error
+                    Toast.makeText(AdminHoliday.this, "ID invalid", Toast.LENGTH_SHORT).show();
+                }
+            });
             queue.add(jsonObjectRequest);
         });
+
 
 
 
