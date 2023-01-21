@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -70,6 +71,8 @@ public class AdminEmployeeList extends AppCompatActivity {
         ImageButton navholiday = findViewById(R.id.NavHolidayButton11);
         ImageButton navaccount = findViewById(R.id.NavAccountButton11);
 
+        //Button createbtn = findViewById(R.id.addbutton);
+
         //log out button switches activity
         navlogout.setOnClickListener(view -> {
             Intent intent = new Intent(AdminEmployeeList.this, AdminLogin.class);
@@ -93,6 +96,12 @@ public class AdminEmployeeList extends AppCompatActivity {
             Intent intent = new Intent(AdminEmployeeList.this, AdminAccount.class);
             startActivity(intent);
         });
+
+        //add button switches activity
+        //createbtn.setOnClickListener(view -> {
+        //Intent intent = new Intent(AdminEmployeeList.this, AdminCreate.class);
+        //    startActivity(intent);
+        //});
 
         RequestQueue queue = Volley.newRequestQueue(AdminEmployeeList.this);
         String url = "http://web.socem.plymouth.ac.uk/COMP2000/api/employees";
