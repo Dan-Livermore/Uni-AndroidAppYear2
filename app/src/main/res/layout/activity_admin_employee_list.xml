@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".AdminEmployeeList">
 
-
     <TextView
         android:id="@+id/NavbarBase11"
         android:layout_width="413dp"
@@ -14,40 +13,8 @@
         android:background="#F44336"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageButton
-        android:id="@+id/NavEmployeeButton11"
-        android:layout_width="86dp"
-        android:layout_height="79dp"
-        android:layout_marginEnd="208dp"
-        android:layout_marginBottom="12dp"
-        android:backgroundTint="#F44336"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_people_24" />
-
-    <ImageButton
-        android:id="@+id/NavAccountButton11"
-        android:layout_width="86dp"
-        android:layout_height="79dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="12dp"
-        android:backgroundTint="#F44336"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_person_24" />
-
-    <ImageButton
-        android:id="@+id/NavHolidayButton11"
-        android:layout_width="86dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="216dp"
-        android:layout_marginBottom="12dp"
-        android:backgroundTint="#F44336"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_airplanemode_active_24" />
 
     <ImageButton
         android:id="@+id/NavLogOutButton11"
@@ -59,9 +26,35 @@
         android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_baseline_exit_to_app_24"
         tools:ignore="ContentDescription" />
+
+    <ImageButton
+        android:id="@+id/NavEmployeeButton11"
+        android:layout_width="86dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="162dp"
+        android:layout_marginEnd="163dp"
+        android:backgroundTint="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_people_24" />
+
+    <ImageButton
+        android:id="@+id/NavAccountButton11"
+        android:layout_width="86dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="309dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#F44336"
+        android:contentDescription="@string/todo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_person_24" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -16,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -68,10 +69,7 @@ public class AdminEmployeeList extends AppCompatActivity {
         //create buttons
         ImageButton navlogout = findViewById(R.id.NavLogOutButton11);
         ImageButton navemployee = findViewById(R.id.NavEmployeeButton11);
-        ImageButton navholiday = findViewById(R.id.NavHolidayButton11);
         ImageButton navaccount = findViewById(R.id.NavAccountButton11);
-
-        //Button createbtn = findViewById(R.id.addbutton);
 
         //log out button switches activity
         navlogout.setOnClickListener(view -> {
@@ -85,17 +83,21 @@ public class AdminEmployeeList extends AppCompatActivity {
             startActivity(intent);
         });
 
-        //holiday button switches activity
-        navholiday.setOnClickListener(view -> {
-            Intent intent = new Intent(AdminEmployeeList.this, AdminEmployeeList.class);
-            startActivity(intent);
-        });
-
         //account button switches activity
         navaccount.setOnClickListener(view -> {
             Intent intent = new Intent(AdminEmployeeList.this, AdminAccount.class);
             startActivity(intent);
         });
+
+        FloatingActionButton addbtn = findViewById(R.id.addbutton);
+        //account button switches activity
+        addbtn.setOnClickListener(view -> {
+            Intent intent = new Intent(AdminEmployeeList.this, AdminCreate.class);
+            startActivity(intent);
+        });
+
+
+
 
         //add button switches activity
         //createbtn.setOnClickListener(view -> {
