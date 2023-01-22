@@ -66,21 +66,23 @@ public class AdminEmployeeData extends AppCompatActivity {
             TextView addFname = findViewById(R.id.EnterFname2);
             TextView addLname = findViewById(R.id.enterLname1);
 
-            String newID = addID.getText().toString();
+            //String newID = addID.getText().toString();
+            int newID =Integer.parseInt(addID.getText().toString());
             String newFname = addFname.getText().toString();
             String newLname = addLname.getText().toString();
 
-            JSONObject object2 = new JSONObject();
+            JSONObject object = new JSONObject();
             try {
-                object2.put("id", newID);
-                object2.put("forename", newFname);
-                object2.put("surname", newLname);
+                object.put("id", newID);
+                object.put("surname", newLname);
+                object.put("forename", newFname);
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
 
-            String url = "http://web.socem.plymouth.ac.uk/COMP2000/api/employees/" + newID;
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, url, object2,
+            String ID = addID.getText().toString();
+            String url = "http://web.socem.plymouth.ac.uk/COMP2000/api/employees/" + ID;
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, url, object,
 
                     new Response.Listener<JSONObject>() {
 
@@ -93,12 +95,10 @@ public class AdminEmployeeData extends AppCompatActivity {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     // TODO: Handle error
-                    Toast.makeText(AdminEmployeeData.this, "ID invalid", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdminEmployeeData.this, "incorrect ID", Toast.LENGTH_SHORT).show();
                 }
             });
             queue.add(jsonObjectRequest);
-            Intent intent = new Intent(AdminEmployeeData.this, AdminEmployeeList.class);
-            startActivity(intent);
             if (Notifications.devicenotifications == Boolean.TRUE && Notifications.afterupdate == Boolean.TRUE) {
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(AdminEmployeeData.this, "Notification 6");
                 builder.setContentTitle("Employee Update");
