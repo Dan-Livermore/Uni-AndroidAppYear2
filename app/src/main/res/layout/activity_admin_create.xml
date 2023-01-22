@@ -6,4 +6,136 @@
     android:layout_height="match_parent"
     tools:context=".AdminCreate">
 
+
+    <TextView
+        android:id="@+id/NavbarBase8"
+        android:layout_width="413dp"
+        android:layout_height="92dp"
+        android:background="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/NavLogOutButton8"
+        android:layout_width="86dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="313dp"
+        android:backgroundTint="#F44336"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_exit_to_app_24"
+        tools:ignore="ContentDescription" />
+
+    <ImageButton
+        android:id="@+id/NavEmployeeButton8"
+        android:layout_width="86dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginEnd="214dp"
+        android:backgroundTint="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_people_24" />
+
+    <ImageButton
+        android:id="@+id/NavHolidayButton8"
+        android:layout_width="86dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginEnd="113dp"
+        android:backgroundTint="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_airplanemode_active_24" />
+
+    <ImageButton
+        android:id="@+id/NavAccountButton8"
+        android:layout_width="86dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="309dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#F44336"
+        android:contentDescription="@string/todo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_person_24" />
+
+    <TextView
+        android:id="@+id/PageTitle3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/source_sans_pro_bold"
+        android:text="Create User"
+        android:textColor="#000000"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/createbutton"
+        android:layout_width="136dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="368dp"
+        android:layout_marginEnd="148dp"
+        android:backgroundTint="#F44336"
+        android:fontFamily="@font/source_sans_pro_bold"
+        android:text="create"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/editTextTextPersonName4"
+        android:layout_width="381dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="104dp"
+        android:ems="10"
+        android:fontFamily="@font/source_sans_pro_bold"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:text="To create a new user, enter their name here:"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/EnterFname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="182dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="First Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/enterFname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="243dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Last Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
