@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 public class AdminAccount extends AppCompatActivity {
@@ -33,6 +34,13 @@ public class AdminAccount extends AppCompatActivity {
         //account button switches activity
         navaccount.setOnClickListener(view -> {
             Intent intent = new Intent(AdminAccount.this, AdminAccount.class);
+            startActivity(intent);
+        });
+
+        Button notifications = findViewById(R.id.NotificationSettingsButton2);
+
+        notifications.setOnClickListener(view -> {
+            Intent intent = new Intent(AdminAccount.this, AdminNotifications.class);
             startActivity(intent);
         });
     }

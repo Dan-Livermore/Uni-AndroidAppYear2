@@ -58,34 +58,35 @@ public class AdminEmployeeData extends AppCompatActivity {
 
         //create holiday buttons
         Button updatebtn = findViewById(R.id.updatebutton);
-        Button deletebtn = findViewById(R.id.deletebutton);
-
 
         updatebtn.setOnClickListener(view -> {
             RequestQueue queue = Volley.newRequestQueue(AdminEmployeeData.this);
 
-            EditText addFname = findViewById(R.id.EnterFname2);
-            EditText addLname = findViewById(R.id.enterLname1);
-            int ID = 1;
+            EditText addID = findViewById(R.id.enterID2);
+            TextView addFname = findViewById(R.id.EnterFname2);
+            TextView addLname = findViewById(R.id.enterLname1);
+
+            String newID = addID.getText().toString();
             String newFname = addFname.getText().toString();
             String newLname = addLname.getText().toString();
+
             JSONObject object2 = new JSONObject();
-            try{
-                object2.put("id", ID);
+            try {
+                object2.put("id", newID);
                 object2.put("forename", newFname);
                 object2.put("surname", newLname);
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
 
-            String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees/"+ID;
+            String url = "http://web.socem.plymouth.ac.uk/COMP2000/api/employees/" + newID;
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, url, object2,
 
                     new Response.Listener<JSONObject>() {
 
                         @Override
                         public void onResponse(JSONObject response) {
-                            Toast.makeText(AdminEmployeeData.this, "Updated", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminEmployeeData.this, "Updated Employee", Toast.LENGTH_SHORT).show();
                         }
                     }, new Response.ErrorListener() {
 
@@ -96,107 +97,93 @@ public class AdminEmployeeData extends AppCompatActivity {
                 }
             });
             queue.add(jsonObjectRequest);
+            Intent intent = new Intent(AdminEmployeeData.this, AdminEmployeeList.class);
+            startActivity(intent);
+            if (Notifications.devicenotifications == Boolean.TRUE && Notifications.afterupdate == Boolean.TRUE) {
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(AdminEmployeeData.this, "Notification 6");
+                builder.setContentTitle("Employee Update");
+                builder.setContentText("Employee Updated");
+                builder.setSmallIcon(R.drawable.ic_baseline_adb_24);
+                builder.setAutoCancel(true);
+
+                NotificationManagerCompat managerCompat = NotificationManagerCompat.from(AdminEmployeeData.this);
+                managerCompat.notify(1, builder.build());
+            }
         });
 
 
-
+        //create holiday buttons
+        Button deletebtn = findViewById(R.id.deletebutton);
 
         deletebtn.setOnClickListener(view -> {
-            ///ask for input
-            TextView addFname = findViewById(R.id.EnterFname2);
-            TextView addLname = findViewById(R.id.enterLname1);
-            int ID = 1;
-            String newFname = addFname.getText().toString();
-            String newLname = addLname.getText().toString();
-////////////////use names to find id
+            EditText addID = findViewById(R.id.enterID2);
+            String newID = addID.getText().toString();
 
             RequestQueue queue = Volley.newRequestQueue(AdminEmployeeData.this);
-            String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees/" + ID;
+            String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees/" + newID;
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                     (Request.Method.DELETE, url, null, new Response.Listener<JSONObject>() {
 
                         @Override
                         public void onResponse(JSONObject response) {
+                            Toast.makeText(AdminEmployeeData.this, "User Deleted", Toast.LENGTH_SHORT).show();
                         }
                     }, new Response.ErrorListener() {
 
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             // TODO: Handle error
-
-
-
-
-                            //404 doesnt exist
-
-
-
-
-
+// 404
                         }
                     });
             queue.add(jsonObjectRequest);
+            Intent intent = new Intent(AdminEmployeeData.this, AdminEmployeeList.class);
+            startActivity(intent);
+            if (Notifications.devicenotifications == Boolean.TRUE && Notifications.afterupdate == Boolean.TRUE) {
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(AdminEmployeeData.this, "Notification 5");
+                builder.setContentTitle("Employee Update");
+                builder.setContentText("Employee Deleted");
+                builder.setSmallIcon(R.drawable.ic_baseline_adb_24);
+                builder.setAutoCancel(true);
+
+                NotificationManagerCompat managerCompat = NotificationManagerCompat.from(AdminEmployeeData.this);
+                managerCompat.notify(1, builder.build());
+            }
         });
 
 
-
-
-
-
-
-
-
-
-
         //create holiday buttons
-        Button approvebtn = findViewById(R.id.ApproveButton);
         Button denybtn = findViewById(R.id.DenyButton);
+        Button approvebtn = findViewById(R.id.ApproveButton);
 
-        //approve button sends notification
-        approvebtn.setOnClickListener(this::onClick);
-        denybtn.setOnClickListener(this::onClick2);
+        denybtn.setOnClickListener(view -> {
+            if (Notifications.devicenotifications = Boolean.TRUE && Notifications.isClaimed == Boolean.TRUE) {
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(AdminEmployeeData.this, "Notification 3");
+                builder.setContentTitle("Holiday Claim");
+                builder.setContentText("Holiday Claim Denied");
+                builder.setSmallIcon(R.drawable.ic_baseline_adb_24);
+                builder.setAutoCancel(true);
 
-        //Check device android version
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel("Notification 2", "Notification 2", NotificationManager.IMPORTANCE_DEFAULT);
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-        }
+                NotificationManagerCompat managerCompat = NotificationManagerCompat.from(AdminEmployeeData.this);
+                managerCompat.notify(3, builder.build());
+            }
+        });
 
-        //Check device android version
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel("Notification 3", "Notification 3", NotificationManager.IMPORTANCE_DEFAULT);
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-        }
+        approvebtn.setOnClickListener(view -> {
+            if (Notifications.devicenotifications = Boolean.TRUE && Notifications.isClaimed == Boolean.TRUE) {
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(AdminEmployeeData.this, "Notification 4");
+                builder.setContentTitle("Holiday Claim");
+                builder.setContentText("Holiday Claim Approved");
+                builder.setSmallIcon(R.drawable.ic_baseline_adb_24);
+                builder.setAutoCancel(true);
+
+                NotificationManagerCompat managerCompat = NotificationManagerCompat.from(AdminEmployeeData.this);
+                managerCompat.notify(4, builder.build());
+            }
+        });
+
+
+    }
 }
 
-    private void onClick2(View view) {
-        if (Notifications.devicenotifications = Boolean.TRUE && Notifications.isClaimed == Boolean.TRUE) {
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(AdminEmployeeData.this, "Notification 3");
-            builder.setContentTitle("Holiday Claim");
-            builder.setContentText("Holiday Claim Denied");
-            builder.setSmallIcon(R.drawable.ic_baseline_adb_24);
-            builder.setAutoCancel(true);
 
-            NotificationManagerCompat managerCompat = NotificationManagerCompat.from(AdminEmployeeData.this);
-            managerCompat.notify(1, builder.build());
-        }
-    }
-
-    private void onClick(View view) {
-        if (Notifications.devicenotifications = Boolean.TRUE && Notifications.isClaimed == Boolean.TRUE) {
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(AdminEmployeeData.this, "Notification 2");
-            builder.setContentTitle("Holiday Claim");
-            builder.setContentText("Holiday Claim Accepted");
-            builder.setSmallIcon(R.drawable.ic_baseline_adb_24);
-            builder.setAutoCancel(true);
-
-            NotificationManagerCompat managerCompat = NotificationManagerCompat.from(AdminEmployeeData.this);
-            managerCompat.notify(1, builder.build());
-        }
-    }
-
-
-
-    }

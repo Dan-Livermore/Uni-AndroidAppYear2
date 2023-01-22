@@ -93,8 +93,7 @@
         android:textColor="#FEFEFE"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:checked="true"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <Switch
         android:id="@+id/switch3"
@@ -107,8 +106,7 @@
         android:textColor="#FEFEFE"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:checked="true"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <Switch
         android:id="@+id/switch4"
@@ -122,8 +120,7 @@
         android:textColor="#FEFEFE"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:checked="true"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/TitleNotification"

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Switch;
 
@@ -77,6 +78,13 @@ public class AdminNotifications extends AppCompatActivity {
                     Notifications.afterupdate = Boolean.FALSE;
                 }
             }
+        });
+
+        Button savebutton = findViewById(R.id.SaveNotify);
+        //save data button switches activity
+        savebutton.setOnClickListener(view ->{
+            Intent intent = new Intent(AdminNotifications.this, AdminAccount.class);
+            startActivity(intent);
         });
 
     }

@@ -1,9 +1,15 @@
 package com.example.highfidelityprototype;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -86,7 +92,16 @@ public class AdminCreate extends AppCompatActivity {
             queue.add(jsonObjectRequest);
             Intent intent = new Intent(AdminCreate.this, AdminEmployeeList.class);
             startActivity(intent);
+            if (Notifications.devicenotifications = Boolean.TRUE && Notifications.afterupdate == Boolean.TRUE) {
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(AdminCreate.this, "Notification 4");
+                builder.setContentTitle("New Employee");
+                builder.setContentText("Employee Added");
+                builder.setSmallIcon(R.drawable.ic_baseline_adb_24);
+                builder.setAutoCancel(true);
 
+                NotificationManagerCompat managerCompat = NotificationManagerCompat.from(AdminCreate.this);
+                managerCompat.notify(1, builder.build());
+        }
         });
 
     }
