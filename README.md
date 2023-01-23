@@ -1,29 +1,73 @@
-# COMP 2000 Set Exercises
-
-### **High-Fidelity Prototype**
-
-The implementation of the high-fidelity prototype for the employee side application. This allows the user to log in; view and edit their personal data; claim holidays; view their previous holiday claims and manage the notifications they receive from this application.
+![COMP 2000 Main Assignment](githublogo.png)
+/github/languages/top/:user/:repo
+### Project Information
+The implementation for the admin side of the employee management application. 
+Allowing the user to perform CRUD operations on employees, manage notification preferences and authorize / deny holiday claims.
+The android app developed in java uses volley to access the data on the RESTful API.
+The app also contains the previously completed employee side, where once logged in, they can view their data, manage notifications and claim holiday.
+### Key Features
+The functionality of the admin side:
+- Log in validation
+- Can view all employees.
+- Can create new employees.
+- Can edit pre-existing employees.
+- Can delete employees.
+- Authorize holiday claims.
+- Choose whether to get notifications for the above.
 
 ### Walkthrough
 
-1. After entering the user's details, press the log-in button, to log into the employee side.\
+1. Select the button labelled 'Admin Log In' on the top of the screen.
+2. Enter the admin's credentials and press 'Log In'.
+- The admin's account will be shown.
+3. Select the 'Notification Settins' button.
+4. Select what notifications you would like to recieve.
+5. Press 'Save'.
+
+At the bottom of each window there is a navbar with 3 buttons: log out, employees, account. Each of these buttons will take the user to the related screen.
+  - To log out, press the leftmost button.
+  - To view a list of all employees, select the middle button.
+  - To return to the screen that is shown after log in, press the right button.
 
  There is a navigation bar at the bottom of every screen after logging in, where the user can switch between the accounts and holiday screens as well as the log out button.
 
-2. Once logged in the user will be on the account screen, where they can see their personal data. The user can then manage notifications or edit their data.
-3. On the notifications sub-screen they can choose from a variety of settings to personalise their experience.  
-4. If the user chooses to edit their data, they can update the values by writing over the previous data.
+To manage the employee data:
+1. Select the middle option on the navbar, changing the screen.
+2. A list of all stored emplolyees will appear.
 
-5. After selecting the holiday option for the navbar, the user will be able to see all of their previously claimed holidays (whether they are approved or denied), how many days of holiday they are still entitled to and a button that will allow them to book more.
-6. Once the book holiday button is pressed, they can input the date they would like to take off and save their changes.
-7. This date will then be added to the pending claims section on the previous window.
+To insert an employee:
+1. Press the button labelled "+".
+2. Enter their first and last name as well as a random number.
+3. The employee will be added to the database.
+4. You will be returned to the list, and the employee will be shown on the list
+
+To edit an employee:
+1. Select an employee.
+2. Enter their ID and updated name.
+3. Press 'Update'.
+4. The employee's data will be updated.
+
+To delete an employee:
+1. Select any employee.
+2. Enter the intended employee's ID.
+3. Press 'Delete'.
+4. The employee will be removed and the user will be returned to the employee list.
+5. The removed employee will not be on the list.
+
+To manage holiday requests:
+1. Select an employee.
+2. Press 'Approve' or 'Deny' to action their requests.
+3. A notification will display, with the outcome of your choice.
 
 
 
-### Roadmap
-- Further, refine the employee side by implementing greater security and the data being stored.
-- Add the admin side of the application.
-- Implement RESTful API
+### Potential Improvements
+- Refine user interface.
+- Improve log in functionality.
+- Store dates for holiday claims.
+- Store and edit additional data and add to the API.
+- Refine the features of the employee side.
 
 ```
-Written in Java using Android Studio 2021.
+Written in Java using Android Studio 2022.
+```
