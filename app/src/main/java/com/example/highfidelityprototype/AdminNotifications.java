@@ -44,45 +44,22 @@ public class AdminNotifications extends AppCompatActivity {
         Switch switch2 = (Switch) findViewById(R.id.switch3);
         Switch switch3 = (Switch) findViewById(R.id.switch2);
 
-        switch1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (switch1.isChecked()){
-                    Notifications.devicenotifications  = Boolean.TRUE;
-                }
-                else{
-                    Notifications.devicenotifications = Boolean.FALSE;
-                }
-            }
-        });
-
-        switch2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (switch2.isChecked()){
-                    Notifications.isClaimed  = Boolean.TRUE;
-                }
-                else{
-                    Notifications.isClaimed = Boolean.FALSE;
-                }
-            }
-        });
-
-        switch3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (switch3.isChecked()){
-                    Notifications.afterupdate  = Boolean.TRUE;
-                }
-                else{
-                    Notifications.afterupdate = Boolean.FALSE;
-                }
-            }
-        });
-
         Button savebutton = findViewById(R.id.SaveNotify);
         //save data button switches activity
         savebutton.setOnClickListener(view ->{
+            Boolean x = Boolean.FALSE;
+            Boolean y = Boolean.FALSE;
+            Boolean z = Boolean.FALSE;
+            if (switch1.isChecked()){
+                x  = Boolean.TRUE;
+            }
+            if (switch2.isChecked()){
+                y = Boolean.TRUE;
+            }
+            if (switch3.isChecked()){
+                z = Boolean.TRUE;
+            }
+            Notifications.updateNotifications(x,y,z);
             Intent intent = new Intent(AdminNotifications.this, AdminAccount.class);
             startActivity(intent);
         });

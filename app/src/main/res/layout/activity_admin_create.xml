@@ -75,28 +75,14 @@
         android:id="@+id/createbutton"
         android:layout_width="136dp"
         android:layout_height="77dp"
-        android:layout_marginTop="368dp"
-        android:layout_marginEnd="148dp"
+        android:layout_marginTop="416dp"
+        android:layout_marginEnd="152dp"
         android:backgroundTint="#F44336"
         android:fontFamily="@font/source_sans_pro_bold"
         android:text="create"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="381dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="104dp"
-        android:ems="10"
-        android:fontFamily="@font/source_sans_pro_bold"
-        android:inputType="textPersonName"
-        android:singleLine="false"
-        android:text="To create a new user, enter their name here:"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,27 +90,79 @@
         android:id="@+id/EnterFname2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="182dp"
+        android:layout_marginTop="228dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="First Name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/enterLname2"
+        android:id="@+id/enterLname1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="243dp"
+        android:layout_marginTop="280dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Last Name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/enterID2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="176dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.855"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/IDtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:fontFamily="@font/source_sans_pro_bold"
+        android:text="ID:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/enterID2"
+        app:layout_constraintHorizontal_bias="0.574"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/IDtext2"
+        android:layout_width="151dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/source_sans_pro_bold"
+        android:text="First Name:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/EnterFname2"
+        app:layout_constraintHorizontal_bias="0.761"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IDtext" />
+
+    <TextView
+        android:id="@+id/LnameText"
+        android:layout_width="151dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="76dp"
+        android:fontFamily="@font/source_sans_pro_bold"
+        android:text="Last Name:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/EnterFname2"
+        app:layout_constraintHorizontal_bias="0.761"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IDtext" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

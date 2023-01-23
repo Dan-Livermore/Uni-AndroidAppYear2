@@ -63,12 +63,14 @@ public class AdminCreate extends AppCompatActivity {
 
             JSONObject object = new JSONObject();
             EditText addFname = findViewById(R.id.EnterFname2);
-            EditText addLname = findViewById(R.id.enterLname2);
-            int ID = 107;
+            EditText addLname = findViewById(R.id.enterLname1);
+            EditText addID = findViewById(R.id.enterID2);
+
             String newFname = addFname.getText().toString();
             String newLname = addLname.getText().toString();
+            int newID =Integer.parseInt(addID.getText().toString());
             try{
-                object.put("id", ID);
+                object.put("id", newID);
                 object.put("forename", newFname);
                 object.put("surname", newLname);
             } catch (JSONException e) {

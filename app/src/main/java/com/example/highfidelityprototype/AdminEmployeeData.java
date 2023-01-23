@@ -27,6 +27,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class AdminEmployeeData extends AppCompatActivity {
+        public Boolean devicenotifications = Boolean.TRUE;
+        public Boolean isClaimed = Boolean.TRUE;
+        public Boolean afterupdate = Boolean.TRUE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,6 +136,7 @@ public class AdminEmployeeData extends AppCompatActivity {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             // TODO: Handle error
+                            Toast.makeText(AdminEmployeeData.this, "ID not found", Toast.LENGTH_SHORT).show();
 // 404
                         }
                     });

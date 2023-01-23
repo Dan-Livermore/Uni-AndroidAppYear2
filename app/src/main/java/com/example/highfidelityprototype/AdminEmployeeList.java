@@ -92,7 +92,7 @@ public class AdminEmployeeList extends AppCompatActivity {
 
         // Populate the data into the template view using the data object
         textView.setText(dataModel.toString());
-        button.setText("->");
+        button.setText(">");
 
         // Set onClickListener on the "View" button
         button.setOnClickListener(new View.OnClickListener() {
