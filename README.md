@@ -1,5 +1,4 @@
 ![COMP 2000 Main Assignment](githublogo.png)
-/github/languages/top/:user/:repo
 ### Project Information
 The implementation for the admin side of the employee management application. 
 Allowing the user to perform CRUD operations on employees, manage notification preferences and authorize / deny holiday claims.
