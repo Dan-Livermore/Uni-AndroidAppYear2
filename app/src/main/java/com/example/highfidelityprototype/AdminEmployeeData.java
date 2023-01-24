@@ -27,9 +27,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class AdminEmployeeData extends AppCompatActivity {
-        public Boolean devicenotifications = Boolean.TRUE;
-        public Boolean isClaimed = Boolean.TRUE;
-        public Boolean afterupdate = Boolean.TRUE;
+        //public Boolean devicenotifications = Boolean.TRUE;
+        //public Boolean isClaimed = Boolean.TRUE;
+        //public Boolean afterupdate = Boolean.TRUE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class AdminEmployeeData extends AppCompatActivity {
             startActivity(intent);
         });
 
-        //create holiday buttons
+        //create update buttons
         Button updatebtn = findViewById(R.id.updatebutton);
 
         updatebtn.setOnClickListener(view -> {

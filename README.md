@@ -1,5 +1,4 @@
 ![COMP 2000 Main Assignment](githublogo.png)
-/github/languages/top/:user/:repo
 ### Project Information
 The implementation for the admin side of the employee management application. 
 Allowing the user to perform CRUD operations on employees, manage notification preferences and authorize / deny holiday claims.
@@ -68,6 +67,9 @@ To manage holiday requests:
 - Store and edit additional data and add to the API.
 - Refine the features of the employee side.
 
+
+All vector images used in the application are from the built-in google material desing icons.
 ```
 Written in Java using Android Studio 2022.
 ```
+
