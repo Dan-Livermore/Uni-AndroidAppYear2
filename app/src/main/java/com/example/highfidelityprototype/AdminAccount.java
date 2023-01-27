@@ -37,8 +37,10 @@ public class AdminAccount extends AppCompatActivity {
             startActivity(intent);
         });
 
+        //Creates button for opening the notifications page
         Button notifications = findViewById(R.id.NotificationSettingsButton2);
 
+        //Switches activity
         notifications.setOnClickListener(view -> {
             Intent intent = new Intent(AdminAccount.this, AdminNotifications.class);
             startActivity(intent);

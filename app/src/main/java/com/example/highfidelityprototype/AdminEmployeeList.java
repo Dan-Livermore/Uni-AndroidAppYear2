@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -145,8 +146,6 @@ public class AdminEmployeeList extends AppCompatActivity {
             Intent intent = new Intent(AdminEmployeeList.this, AdminCreate.class);
             startActivity(intent);
         });
-
-
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "http://web.socem.plymouth.ac.uk/COMP2000/api/employees/";
 
@@ -181,6 +180,7 @@ public class AdminEmployeeList extends AppCompatActivity {
                 }
             }
         });
+
 
         queue.add(stringRequest);
     }

@@ -7,6 +7,7 @@ import androidx.core.app.NotificationManagerCompat;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -55,56 +56,73 @@ public class AdminCreate extends AppCompatActivity {
             startActivity(intent);
         });
 
+        //Creates button to store new user in database.
         Button createbtn = findViewById(R.id.createbutton);
 
+        //when button is pressed create the queue for the API requests
         createbtn.setOnClickListener(view -> {
-            RequestQueue queue = Volley.newRequestQueue(AdminCreate.this);
-            String url ="http://web.socem.plymouth.ac.uk/COMP2000/api/employees";
+            //starts worker thread
+            class InsertEmployeesData extends AsyncTask<Void, Void, Void> {
+                @Override
+                protected Void doInBackground(Void... voids) {
+                    RequestQueue queue = Volley.newRequestQueue(AdminCreate.this);
+                    String url = "http://web.socem.plymouth.ac.uk/COMP2000/api/employees";
 
-            JSONObject object = new JSONObject();
-            EditText addFname = findViewById(R.id.EnterFname2);
-            EditText addLname = findViewById(R.id.enterLname1);
-            EditText addID = findViewById(R.id.enterID2);
+                    //creates a new JSON object to store the data of the new employee in
+                    JSONObject object = new JSONObject();
+                    EditText addFname = findViewById(R.id.EnterFname2);
+                    EditText addLname = findViewById(R.id.enterLname1);
+                    EditText addID = findViewById(R.id.enterID2);
 
-            String newFname = addFname.getText().toString();
-            String newLname = addLname.getText().toString();
-            int newID =Integer.parseInt(addID.getText().toString());
-            try{
-                object.put("id", newID);
-                object.put("forename", newFname);
-                object.put("surname", newLname);
-            } catch (JSONException e) {
-                throw new RuntimeException(e);
+                    //gets the data from the input boxes
+                    String newFname = addFname.getText().toString();
+                    String newLname = addLname.getText().toString();
+                    int newID = Integer.parseInt(addID.getText().toString());
+                    //stores the input data into the JSON object
+                    try {
+                        object.put("id", newID);
+                        object.put("forename", newFname);
+                        object.put("surname", newLname);
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                    JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                            //POST = insert
+                            (Request.Method.POST, url, object, new Response.Listener<JSONObject>() {
+
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                }
+                            }, new Response.ErrorListener() {
+
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    // TODO: Handle error
+
+                                }
+                            });
+                    //adds the insert to the request queue
+                    queue.add(jsonObjectRequest);
+                    //swaps screen back to employee list to show the user that the employee has been added
+                    Intent intent = new Intent(AdminCreate.this, AdminEmployeeList.class);
+                    startActivity(intent);
+                    //if notifications have been correctly turned on, a push notification will be shown
+                    if (Notifications.devicenotifications = Boolean.TRUE && Notifications.afterupdate == Boolean.TRUE) {
+                        NotificationCompat.Builder builder = new NotificationCompat.Builder(AdminCreate.this, "Notification 4");
+                        builder.setContentTitle("New Employee");
+                        builder.setContentText("Employee Added");
+                        builder.setSmallIcon(R.drawable.ic_baseline_adb_24);
+                        builder.setAutoCancel(true);
+
+                        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(AdminCreate.this);
+                        managerCompat.notify(1, builder.build());
+                    }
+                    return null;
+                }
             }
-
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                    (Request.Method.POST, url, object, new Response.Listener<JSONObject>() {
-
-                        @Override
-                        public void onResponse(JSONObject response) {
-                        }
-                    }, new Response.ErrorListener() {
-
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            // TODO: Handle error
-
-                        }
-                    });
-            queue.add(jsonObjectRequest);
-            Intent intent = new Intent(AdminCreate.this, AdminEmployeeList.class);
-            startActivity(intent);
-            if (Notifications.devicenotifications = Boolean.TRUE && Notifications.afterupdate == Boolean.TRUE) {
-                NotificationCompat.Builder builder = new NotificationCompat.Builder(AdminCreate.this, "Notification 4");
-                builder.setContentTitle("New Employee");
-                builder.setContentText("Employee Added");
-                builder.setSmallIcon(R.drawable.ic_baseline_adb_24);
-                builder.setAutoCancel(true);
-
-                NotificationManagerCompat managerCompat = NotificationManagerCompat.from(AdminCreate.this);
-                managerCompat.notify(1, builder.build());
-        }
+            //calls worker thread to complete the async HTTP request
+            new InsertEmployeesData().execute();
         });
-
     }
 }
