@@ -20,16 +20,16 @@ The functionality of the admin side:
 - The admin's account will be shown.
 2. Select the 'Notification Settings' button.
 3. Select what notifications you would like to receive.
-4. Press 'Save'.
-![How to log in and update notifications](readmegifs/Notifications.gif)<br>
+4. Press 'Save'. <br />
+![How to log in and update notifications](readmegifs/Notifications.gif) <br />
 
 At the bottom of each window there is a navbar with 3 buttons: log out, employees, account. Each of these buttons will take the user to the related screen.
   - To log out, press the leftmost button.
   - To view a list of all employees, select the middle button.
   - To return to the screen that is shown after logging in, press the right button.
 
- There is a navigation bar at the bottom of every screen after logging in, where the user can switch between the accounts and holiday screens as well as the log out button.
-![How to access the navbar](readmegifs/Navbar.gif)<br>
+ There is a navigation bar at the bottom of every screen after logging in, where the user can switch between the accounts and holiday screens as well as the log out button.  <br />
+![How to access the navbar](readmegifs/Navbar.gif) <br />
 
 
 To manage the employee data:
@@ -40,29 +40,29 @@ To insert an employee:
 1. Press the button labelled "+".
 2. Enter their first and last name as well as a random number.
 3. The employee will be added to the database.
-4. You will be returned to the list, and the employee will be shown on the list
-![How to insert an employee](readmegifs/Insert.gif)<br>
+4. You will be returned to the list, and the employee will be shown on the list<br />
+![How to insert an employee](readmegifs/Insert.gif)<br />
 
 To edit an employee:
 1. Select an employee.
 2. Enter their ID and updated name.
 3. Press 'Update'.
-4. The employee's data will be updated.
-![How to update an employee](readmegifs/Update.gif)<br>
+4. The employee's data will be updated.<br />
+![How to update an employee](readmegifs/Update.gif)<br />
 
 To delete an employee:
 1. Select any employee.
 2. Enter the intended employee's ID.
 3. Press 'Delete'.
 4. The employee will be removed, and the user will be returned to the employee list.
-5. The removed employee will not be on the list.
-![How to delete an employee](readmegifs/Delete.gif)<br>
+5. The removed employee will not be on the list.<br />
+![How to delete an employee](readmegifs/Delete.gif)<br />
 
 To manage holiday requests:
 1. Select an employee.
 2. Press 'Approve' or 'Deny' to action their requests.
-3. A notification will display, with the outcome of your choice.
-![How to manage employee holiday claims](readmegifs/Notifications.gif)<br>
+3. A notification will display, with the outcome of your choice.<br />
+![How to manage employee holiday claims](readmegifs/Notifications.gif)<br />
 
 
 
@@ -74,7 +74,7 @@ To manage holiday requests:
 - Refine the features of the employee side.
 
 
-All vector images used in the application are from the built-in google material desing icons.
+All vector images used in the application are from the built-in Google Material Design icons.
 ```
 Written in Java using Android Studio 2022.
 ```

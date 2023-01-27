@@ -15,7 +15,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.NetworkError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -98,8 +100,10 @@ public class AdminCreate extends AppCompatActivity {
 
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
-                                    // TODO: Handle error
+                                    //basic error testing
+                                    Toast.makeText(AdminCreate.this, "Could not create new employee, ID already used",Toast.LENGTH_LONG).show();
 
+                                    //could improve to handle network errors (400 / 404 / 405)
                                 }
                             });
                     //adds the insert to the request queue
