@@ -1,14 +1,11 @@
 package com.example.highfidelityprototype;
 
-import static java.security.AccessController.getContext;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -35,35 +33,29 @@ import java.util.ArrayList;
 
 public class AdminEmployeeList extends AppCompatActivity {
 
-    private RequestQueue queue;
     class DataModel {
         private int id;
         private String surname;
         private String forename;
 
+        //creates template to store data in
         public DataModel(int id, String surname, String forename) {
             this.id = id;
             this.surname = surname;
             this.forename = forename;
         }
 
-        public DataModel(JSONObject jsonObject) throws JSONException{
+        //stores the JSON array data
+        public DataModel(JSONObject jsonObject) throws JSONException {
             id = jsonObject.getInt("id");
             surname = jsonObject.getString("surname");
             forename = jsonObject.getString("forename");
         }
 
-        public int getId(){
+        public int getId() {
             return id;
         }
 
-        public String getSurname(){
-            return surname;
-        }
-
-        public String getForename(){
-            return  forename;
-        }
         @Override
         public String toString() {
             return forename + " " + surname;
@@ -78,39 +70,37 @@ public class AdminEmployeeList extends AppCompatActivity {
             this.data = data;
         }
 
-    @NonNull
-    @Override
-    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        View customView = inflater.inflate(R.layout.list_view_items, parent, false);
+        @NonNull
+        @Override
+        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+            //uses code in getContext() to swap screen
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            //uses the additional xml file as well as the default
+            View customView = inflater.inflate(R.layout.list_view_items, parent, false);
 
-        // Get the data item for this position
-        final DataModel dataModel = getItem(position);
+            // puts the data into correct position
+            final DataModel dataModel = getItem(position);
 
-        // Lookup view for data population
-        TextView textView = customView.findViewById(R.id.text_view);
-        Button button = customView.findViewById(R.id.button);
+            // creates items to store data in
+            TextView textView = customView.findViewById(R.id.text_view);
+            Button button = customView.findViewById(R.id.button);
 
-        // Populate the data into the template view using the data object
-        textView.setText(dataModel.toString());
-        button.setText(">");
+            // fills items
+            textView.setText(dataModel.toString());
+            button.setText(">");
 
-        // Set onClickListener on the "View" button
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), AdminEmployeeData.class);
-                intent.putExtra("employee_Forename", dataModel.getForename());
-                intent.putExtra("employee_Surname", dataModel.getSurname());
-                intent.putExtra("employee_id", dataModel.getId());
-                getContext().startActivity(intent);
-            }
-        });
-
-
-        // Return the completed view to render on screen
-        return customView;
-    }}
+            //when button is pressed, swaps screens
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //formats the data to be displayed in the correct order (first name , last name)
+                    Intent intent = new Intent(getContext(), AdminEmployeeData.class);
+                    getContext().startActivity(intent);
+                }
+            });
+            return customView;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,42 +136,54 @@ public class AdminEmployeeList extends AppCompatActivity {
             Intent intent = new Intent(AdminEmployeeList.this, AdminCreate.class);
             startActivity(intent);
         });
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://web.socem.plymouth.ac.uk/COMP2000/api/employees/";
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // Parse the response string and display the data in a list view
-                        try {
-                            JSONArray jsonArray = new JSONArray(response);
-                            ArrayList<DataModel> data = new ArrayList<>();
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                DataModel dataModel = new DataModel(jsonObject);
-                                data.add(dataModel);
-                            }
-                            ListView listView = findViewById(R.id.list_view);
-                            CustomAdapter adapter = new CustomAdapter(AdminEmployeeList.this, data);
-                            listView.setAdapter(adapter);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
+        //starts async HTTP queue
+        class GetEmployeesData extends AsyncTask<Void, Void, Void> {
             @Override
-            public void onErrorResponse(VolleyError error) {
-                if(error.getMessage()!=null)
-                {
-                    Log.d("AdminEmployeeList", "Error: " + error.getMessage());
-                } else {
-                    Log.d("Error", "null");
-                }
+            protected Void doInBackground(Void... voids) {
+                RequestQueue queue = Volley.newRequestQueue(AdminEmployeeList.this);
+                //gets URL of webpage that contains the data
+                String url = "http://web.socem.plymouth.ac.uk/COMP2000/api/employees/";
+                //starts request for all the data
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                        //GET = read
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                // Parse the response string and display the data in a list view
+                                try {
+                                    //creates a JSON array in the form as the JSON data on the API
+                                    JSONArray jsonArray = new JSONArray(response);
+                                    ArrayList<DataModel> data = new ArrayList<>();
+                                    //iterates through all the data and adds it to the list
+                                    for (int i = 0; i < jsonArray.length(); i++) {
+                                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                        DataModel dataModel = new DataModel(jsonObject);
+                                        data.add(dataModel);
+                                    }
+                                    //adds the list onto the list view to display the information
+                                    ListView listView = findViewById(R.id.list_view);
+                                    CustomAdapter adapter = new CustomAdapter(AdminEmployeeList.this, data);
+                                    listView.setAdapter(adapter);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //basic error testing
+                        Toast.makeText(AdminEmployeeList.this, "Could notfind employees",Toast.LENGTH_LONG).show();
+
+                        //could improve to handle network errors (400 / 404 / 405)
+                    }
+                });
+                queue.add(stringRequest);
+                return null;
+
             }
-        });
-
-
-        queue.add(stringRequest);
+        }
+        //calls worker thread to complete the async HTTP request
+        new GetEmployeesData().execute();
     }
 }

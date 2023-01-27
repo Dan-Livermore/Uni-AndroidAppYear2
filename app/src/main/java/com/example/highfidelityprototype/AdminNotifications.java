@@ -47,6 +47,7 @@ public class AdminNotifications extends AppCompatActivity {
         Button savebutton = findViewById(R.id.SaveNotify);
         //save data button switches activity
         savebutton.setOnClickListener(view ->{
+            //after button is pressed, the values of the switches is stored and used to update the static class
             Boolean x = Boolean.FALSE;
             Boolean y = Boolean.FALSE;
             Boolean z = Boolean.FALSE;
@@ -60,6 +61,7 @@ public class AdminNotifications extends AppCompatActivity {
                 z = Boolean.TRUE;
             }
             Notifications.updateNotifications(x,y,z);
+            //returns to previous screen
             Intent intent = new Intent(AdminNotifications.this, AdminAccount.class);
             startActivity(intent);
         });

@@ -112,7 +112,7 @@ public class AdminCreate extends AppCompatActivity {
                     Intent intent = new Intent(AdminCreate.this, AdminEmployeeList.class);
                     startActivity(intent);
                     //if notifications have been correctly turned on, a push notification will be shown
-                    if (Notifications.devicenotifications = Boolean.TRUE && Notifications.afterupdate == Boolean.TRUE) {
+                    if (Notifications.devicenotifications == Boolean.TRUE && Notifications.afterupdate == Boolean.TRUE) {
                         NotificationCompat.Builder builder = new NotificationCompat.Builder(AdminCreate.this, "Notification 4");
                         builder.setContentTitle("New Employee");
                         builder.setContentText("Employee Added");
