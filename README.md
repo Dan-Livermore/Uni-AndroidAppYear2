@@ -9,7 +9,7 @@ The functionality of the admin side:
 - Log in validation
 - Can view all employees.
 - Can create new employees.
-- Can edit pre-existing employees.
+- Can edit employee data.
 - Can delete employees.
 - Authorize holiday claims.
 - Choose whether to get notifications for the above.

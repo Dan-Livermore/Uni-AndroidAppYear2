@@ -8,18 +8,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class AdminLogin extends AppCompatActivity {
+public class EmployeeLogin extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_login);
+        setContentView(R.layout.activity_employee_login);
 
         //log in button switches activity
-        Button mainlogin = findViewById(R.id.LogInButton2);
-        Button emplogin = findViewById(R.id.empbutton2);
+        Button mainlogin = findViewById(R.id.LogInButton);
+        Button adminlogin = findViewById(R.id.adminbutton);
 
-        // logs in
+
         mainlogin.setOnClickListener(view -> {
             // no validation on inputs
             EditText username = (EditText) findViewById(R.id.EmailTextbox);
@@ -27,23 +27,23 @@ public class AdminLogin extends AppCompatActivity {
             EditText password = (EditText) findViewById(R.id.PasswordTextbox);
             String passw = password.getText().toString();
             if (user.equals("") && passw.equals("")) {
-                Toast.makeText(AdminLogin.this, "Enter email and password",
+                Toast.makeText(EmployeeLogin.this, "Enter email and password",
                         Toast.LENGTH_SHORT).show();
             } else if (user.equals("")) {
-                Toast.makeText(AdminLogin.this, "Enter valid email",
+                Toast.makeText(EmployeeLogin.this, "Enter valid email",
                         Toast.LENGTH_SHORT).show();
             } else if (passw.equals("")) {
-                Toast.makeText(AdminLogin.this, "Enter password",
+                Toast.makeText(EmployeeLogin.this, "Enter password",
                         Toast.LENGTH_SHORT).show();
             } else {
-                Intent intent = new Intent(AdminLogin.this, AdminAccount.class);
+                Intent intent = new Intent(EmployeeLogin.this, EmployeeAccount.class);
                 startActivity(intent);
             }
         });
 
         //swaps to employee log in
-        emplogin.setOnClickListener(view ->{
-            Intent intent = new Intent(AdminLogin.this, MainActivity.class);
+        adminlogin.setOnClickListener(view ->{
+            Intent intent = new Intent(EmployeeLogin.this, MainActivity.class);
             startActivity(intent);
         });
 

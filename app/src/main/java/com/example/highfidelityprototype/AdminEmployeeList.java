@@ -123,7 +123,7 @@ public class AdminEmployeeList extends AppCompatActivity {
 
         //log out button switches activity
         navlogout.setOnClickListener(view -> {
-            Intent intent = new Intent(AdminEmployeeList.this, AdminLogin.class);
+            Intent intent = new Intent(AdminEmployeeList.this, MainActivity.class);
             startActivity(intent);
         });
 

@@ -18,10 +18,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //log in button switches activity
-        Button mainlogin = findViewById(R.id.LogInButton);
-        Button adminlogin = findViewById(R.id.adminbutton);
+        Button mainlogin = findViewById(R.id.LogInButton2);
+        Button emplogin = findViewById(R.id.empbutton2);
 
-
+        // logs in
         mainlogin.setOnClickListener(view -> {
             // no validation on inputs
             EditText username = (EditText) findViewById(R.id.EmailTextbox);
@@ -38,14 +38,14 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Enter password",
                         Toast.LENGTH_SHORT).show();
             } else {
-                Intent intent = new Intent(MainActivity.this, EmployeeAccount.class);
+                Intent intent = new Intent(MainActivity.this, AdminAccount.class);
                 startActivity(intent);
             }
         });
 
         //swaps to employee log in
-        adminlogin.setOnClickListener(view ->{
-            Intent intent = new Intent(MainActivity.this, AdminLogin.class);
+        emplogin.setOnClickListener(view ->{
+            Intent intent = new Intent(MainActivity.this, EmployeeLogin.class);
             startActivity(intent);
         });
 

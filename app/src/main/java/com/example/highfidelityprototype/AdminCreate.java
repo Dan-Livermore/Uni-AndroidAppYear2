@@ -39,7 +39,7 @@ public class AdminCreate extends AppCompatActivity {
 
         //log out button switches activity
         navlogout.setOnClickListener(view -> {
-            Intent intent = new Intent(AdminCreate.this, AdminLogin.class);
+            Intent intent = new Intent(AdminCreate.this, MainActivity.class);
             startActivity(intent);
         });
 
